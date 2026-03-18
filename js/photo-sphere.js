@@ -10,7 +10,8 @@ class PhotoSphere {
         this.angleY = 0;
         this.targetAngleX = 0;
         this.targetAngleY = 0;
-        this.speed = 0.001;
+        this.speed = 0.005; // 增加自动旋转速度
+        this.mouseSpeed = 0;
         
         this.init();
     }
@@ -23,8 +24,8 @@ class PhotoSphere {
             img.className = 'sphere-photo';
             img.alt = `照片 ${index + 1}`;
             
-            // 在球面上均匀分布照片
-            const phi = Math.acos(-1 + (2 * index) / this.photos.length);
+            // 在球面上均匀分布照片 - 使用改进的分布算法
+            const phi = Math.acos(-1 + (2 * index + 1) / this.photos.length);
             const theta = Math.sqrt(this.photos.length * Math.PI) * phi;
             
             img.dataset.phi = phi;
@@ -33,14 +34,29 @@ class PhotoSphere {
             this.container.appendChild(img);
         });
         
-        // 鼠标交互
+        // 鼠标交互 - 增强响应
+        let isMouseOver = false;
+        
+        this.container.addEventListener('mouseenter', () => {
+            isMouseOver = true;
+        });
+        
+        this.container.addEventListener('mouseleave', () => {
+            isMouseOver = false;
+            this.mouseSpeed = 0;
+        });
+        
         this.container.addEventListener('mousemove', (e) => {
+            if (!isMouseOver) return;
+            
             const rect = this.container.getBoundingClientRect();
             const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
             const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
             
-            this.targetAngleX = y * 0.5;
-            this.targetAngleY = x * 0.5;
+            // 增大交互响应范围
+            this.targetAngleX = y * Math.PI * 0.3;
+            this.targetAngleY = x * Math.PI * 0.3;
+            this.mouseSpeed = 0.01; // 鼠标控制时加快速度
         });
         
         // 启动动画
@@ -49,11 +65,11 @@ class PhotoSphere {
     
     updatePositions() {
         // 平滑过渡到目标角度
-        this.angleX += (this.targetAngleX - this.angleX) * 0.05;
-        this.angleY += (this.targetAngleY - this.angleY) * 0.05;
+        this.angleX += (this.targetAngleX - this.angleX) * 0.1;
+        this.angleY += (this.targetAngleY - this.angleY) * 0.1;
         
-        // 自动旋转
-        this.angleY += this.speed;
+        // 自动旋转（考虑鼠标速度）
+        this.angleY += this.speed + this.mouseSpeed;
         
         const photos = this.container.querySelectorAll('.sphere-photo');
         photos.forEach((photo) => {
@@ -65,15 +81,18 @@ class PhotoSphere {
             const y = this.radius * Math.cos(phi + this.angleX);
             const z = this.radius * Math.sin(phi) * Math.sin(theta + this.angleY);
             
-            // 计算缩放（模拟透视）
-            const scale = (this.radius + z) / (2 * this.radius);
-            const opacity = (scale - 0.5) * 2;
+            // 计算缩放（模拟透视）- 增强深度感
+            const scale = (this.radius * 1.5 + z) / (2.5 * this.radius);
+            const opacity = Math.max(0.2, Math.min(1, (scale - 0.3) * 2.5));
             
             // 应用变换
             photo.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${z}px) scale(${scale})`;
-            photo.style.opacity = Math.max(0.3, Math.min(1, opacity));
-            photo.style.zIndex = Math.floor(z);
+            photo.style.opacity = opacity;
+            photo.style.zIndex = Math.floor(z + 1000);
         });
+        
+        // 减缓鼠标速度
+        this.mouseSpeed *= 0.95;
     }
     
     animate() {
