@@ -462,14 +462,14 @@ body {
 /* 照片网格样式 */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
     border-radius: 8px;
     align-items: start;
 }
 
 .photo-showcase {
-    padding: 1rem;
+    padding: 0.8rem;
 }
 
 .photo-showcase .photo-grid {
@@ -478,6 +478,29 @@ body {
 
 .grid-photo {
     width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(125, 184, 158, 0.3);
+}
+
+/* 学生工作照片专用样式 - 2x2布局，更大尺寸 */
+.student-work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    border-radius: 8px;
+    align-items: start;
+}
+
+.student-work-photo {
+    width: 100%;
     height: 280px;
     object-fit: cover;
     border-radius: 8px;
@@ -485,7 +508,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.grid-photo:hover {
+.student-work-photo:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 20px rgba(125, 184, 158, 0.4);
 }
