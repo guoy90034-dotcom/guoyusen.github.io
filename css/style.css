@@ -143,13 +143,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+}
+
+/* 只给三张照片添加滑入动画（第2、3、4个子元素） */
+.hero-image:nth-child(2),
+.hero-image:nth-child(3),
+.hero-image:nth-child(4) {
     /* 初始状态：从右侧外面开始 */
     opacity: 0;
     transform: translateX(100px);
 }
 
-/* 照片滑入动画 */
 .hero-image:nth-child(2) {
     animation: slideInFromRight 1s ease-out 0.3s forwards;
 }
