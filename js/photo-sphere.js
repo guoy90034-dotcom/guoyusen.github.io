@@ -70,7 +70,7 @@ class PhotoSphere {
             const opacity = (scale - 0.5) * 2;
             
             // 应用变换
-            photo.style.transform = `translate3d(${x}px, ${y}px, ${z}px) scale(${scale})`;
+            photo.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${y}px, ${z}px) scale(${scale})`;
             photo.style.opacity = Math.max(0.3, Math.min(1, opacity));
             photo.style.zIndex = Math.floor(z);
         });
