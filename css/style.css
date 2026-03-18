@@ -170,6 +170,7 @@ body {
 .text-3d {
     font-size: 12rem;
     font-weight: 900;
+    color: transparent;
     text-align: center;
     font-family: 'Arial Black', sans-serif;
     letter-spacing: 0.1em;
@@ -178,28 +179,6 @@ body {
     transform-style: preserve-3d;
     animation: float 3s ease-in-out infinite;
     -webkit-font-smoothing: antialiased;
-    
-    /* 水彩斑点花纹效果 */
-    background: 
-        radial-gradient(circle at 10% 20%, rgba(168, 213, 186, 0.8) 0%, transparent 50%),
-        radial-gradient(circle at 80% 10%, rgba(125, 184, 158, 0.7) 0%, transparent 50%),
-        radial-gradient(circle at 40% 70%, rgba(168, 213, 186, 0.6) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(142, 193, 174, 0.7) 0%, transparent 50%),
-        radial-gradient(circle at 20% 90%, rgba(125, 184, 158, 0.5) 0%, transparent 50%),
-        radial-gradient(circle at 60% 30%, rgba(168, 213, 186, 0.6) 0%, transparent 40%),
-        radial-gradient(circle at 30% 50%, rgba(158, 203, 180, 0.7) 0%, transparent 45%),
-        radial-gradient(circle at 70% 60%, rgba(125, 184, 158, 0.6) 0%, transparent 50%),
-        radial-gradient(circle at 50% 40%, rgba(142, 193, 174, 0.5) 0%, transparent 35%),
-        radial-gradient(circle at 15% 60%, rgba(168, 213, 186, 0.7) 0%, transparent 40%),
-        radial-gradient(circle at 85% 45%, rgba(125, 184, 158, 0.6) 0%, transparent 45%),
-        radial-gradient(circle at 45% 15%, rgba(158, 203, 180, 0.7) 0%, transparent 40%),
-        linear-gradient(135deg, #a8d5ba, #7db89e);
-    
-    background-size: 100% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 4px rgba(125, 184, 158, 0.3));
 }
 
 .text-3d::before {
@@ -207,22 +186,47 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    color: #c5e3d8;
-    text-shadow: 
-        -1px -1px 0 #a8d5ba,
-        -2px -2px 0 #a8d5ba,
-        -3px -3px 0 #a8d5ba,
-        -4px -4px 0 #9bcbb4,
-        -5px -5px 0 #9bcbb4,
-        -6px -6px 0 #8ec1ae,
-        -7px -7px 0 #8ec1ae,
-        -8px -8px 0 #81b7a8,
-        -9px -9px 0 #81b7a8,
-        -10px -10px 0 #74ada2,
-        -11px -11px 15px rgba(168, 213, 186, 0.3),
-        -12px -12px 20px rgba(168, 213, 186, 0.2),
-        -13px -13px 25px rgba(168, 213, 186, 0.1);
     z-index: -1;
+    
+    /* 水彩斑点花纹效果 */
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(168, 213, 186, 0.9) 0%, transparent 50%),
+        radial-gradient(circle at 80% 10%, rgba(125, 184, 158, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 40% 70%, rgba(168, 213, 186, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(142, 193, 174, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 20% 90%, rgba(125, 184, 158, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 60% 30%, rgba(168, 213, 186, 0.7) 0%, transparent 40%),
+        radial-gradient(circle at 30% 50%, rgba(158, 203, 180, 0.8) 0%, transparent 45%),
+        radial-gradient(circle at 70% 60%, rgba(125, 184, 158, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 50% 40%, rgba(142, 193, 174, 0.6) 0%, transparent 35%),
+        radial-gradient(circle at 15% 60%, rgba(168, 213, 186, 0.8) 0%, transparent 40%),
+        radial-gradient(circle at 85% 45%, rgba(125, 184, 158, 0.7) 0%, transparent 45%),
+        radial-gradient(circle at 45% 15%, rgba(158, 203, 180, 0.8) 0%, transparent 40%),
+        radial-gradient(circle at 25% 35%, rgba(142, 193, 174, 0.6) 0%, transparent 38%),
+        radial-gradient(circle at 75% 85%, rgba(168, 213, 186, 0.7) 0%, transparent 42%),
+        radial-gradient(circle at 55% 75%, rgba(125, 184, 158, 0.6) 0%, transparent 40%),
+        linear-gradient(135deg, #a8d5ba, #7db89e);
+    
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* 3D阴影效果 */
+    text-shadow: 
+        -1px -1px 0 rgba(168, 213, 186, 0.3),
+        -2px -2px 0 rgba(168, 213, 186, 0.25),
+        -3px -3px 0 rgba(168, 213, 186, 0.2),
+        -4px -4px 0 rgba(155, 203, 180, 0.18),
+        -5px -5px 0 rgba(155, 203, 180, 0.15),
+        -6px -6px 0 rgba(142, 193, 174, 0.12),
+        -7px -7px 0 rgba(142, 193, 174, 0.1),
+        -8px -8px 0 rgba(129, 183, 168, 0.08),
+        -9px -9px 0 rgba(129, 183, 168, 0.06),
+        -10px -10px 0 rgba(116, 173, 162, 0.05),
+        -11px -11px 15px rgba(168, 213, 186, 0.2),
+        -12px -12px 20px rgba(168, 213, 186, 0.15),
+        -13px -13px 25px rgba(168, 213, 186, 0.1);
 }
 
 @keyframes float {
