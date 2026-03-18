@@ -8,10 +8,9 @@ class PhotoSphere {
         this.radius = 200; // 球体半径
         this.angleX = 0;
         this.angleY = 0;
-        this.targetAngleX = 0;
-        this.targetAngleY = 0;
-        this.speed = 0.005; // 增加自动旋转速度
-        this.mouseSpeed = 0;
+        this.speedX = 0; // X轴旋转速度
+        this.speedY = 0.01; // Y轴旋转速度（自动旋转）
+        this.autoRotateSpeed = 0.01; // 基础自动旋转速度
         
         this.init();
     }
@@ -24,7 +23,7 @@ class PhotoSphere {
             img.className = 'sphere-photo';
             img.alt = `照片 ${index + 1}`;
             
-            // 在球面上均匀分布照片 - 使用改进的分布算法
+            // 在球面上均匀分布照片
             const phi = Math.acos(-1 + (2 * index + 1) / this.photos.length);
             const theta = Math.sqrt(this.photos.length * Math.PI) * phi;
             
@@ -34,29 +33,42 @@ class PhotoSphere {
             this.container.appendChild(img);
         });
         
-        // 鼠标交互 - 增强响应
+        // 鼠标交互 - 控制旋转速度而不是目标角度
+        let lastMouseX = 0;
+        let lastMouseY = 0;
         let isMouseOver = false;
         
-        this.container.addEventListener('mouseenter', () => {
+        this.container.addEventListener('mouseenter', (e) => {
             isMouseOver = true;
+            const rect = this.container.getBoundingClientRect();
+            lastMouseX = e.clientX - rect.left;
+            lastMouseY = e.clientY - rect.top;
         });
         
         this.container.addEventListener('mouseleave', () => {
             isMouseOver = false;
-            this.mouseSpeed = 0;
+            // 恢复自动旋转
+            this.speedY = this.autoRotateSpeed;
+            this.speedX = 0;
         });
         
         this.container.addEventListener('mousemove', (e) => {
             if (!isMouseOver) return;
             
             const rect = this.container.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-            const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
             
-            // 增大交互响应范围
-            this.targetAngleX = y * Math.PI * 0.3;
-            this.targetAngleY = x * Math.PI * 0.3;
-            this.mouseSpeed = 0.01; // 鼠标控制时加快速度
+            // 计算鼠标移动的增量
+            const deltaX = mouseX - lastMouseX;
+            const deltaY = mouseY - lastMouseY;
+            
+            // 根据鼠标移动增量调整旋转速度
+            this.speedY = deltaX * 0.002; // 水平移动控制Y轴旋转
+            this.speedX = deltaY * 0.002; // 垂直移动控制X轴旋转
+            
+            lastMouseX = mouseX;
+            lastMouseY = mouseY;
         });
         
         // 启动动画
@@ -64,12 +76,18 @@ class PhotoSphere {
     }
     
     updatePositions() {
-        // 平滑过渡到目标角度
-        this.angleX += (this.targetAngleX - this.angleX) * 0.1;
-        this.angleY += (this.targetAngleY - this.angleY) * 0.1;
+        // 持续累积旋转角度 - 这样球体可以完整旋转
+        this.angleX += this.speedX;
+        this.angleY += this.speedY;
         
-        // 自动旋转（考虑鼠标速度）
-        this.angleY += this.speed + this.mouseSpeed;
+        // 速度衰减（当没有鼠标交互时）
+        this.speedX *= 0.95;
+        this.speedY *= 0.98;
+        
+        // 确保至少保持最小的自动旋转速度
+        if (Math.abs(this.speedY) < this.autoRotateSpeed) {
+            this.speedY = this.autoRotateSpeed;
+        }
         
         const photos = this.container.querySelectorAll('.sphere-photo');
         photos.forEach((photo) => {
@@ -81,7 +99,7 @@ class PhotoSphere {
             const y = this.radius * Math.cos(phi + this.angleX);
             const z = this.radius * Math.sin(phi) * Math.sin(theta + this.angleY);
             
-            // 计算缩放（模拟透视）- 增强深度感
+            // 计算缩放（模拟透视）
             const scale = (this.radius * 1.5 + z) / (2.5 * this.radius);
             const opacity = Math.max(0.2, Math.min(1, (scale - 0.3) * 2.5));
             
@@ -90,9 +108,6 @@ class PhotoSphere {
             photo.style.opacity = opacity;
             photo.style.zIndex = Math.floor(z + 1000);
         });
-        
-        // 减缓鼠标速度
-        this.mouseSpeed *= 0.95;
     }
     
     animate() {
