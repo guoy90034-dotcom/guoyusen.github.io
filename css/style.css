@@ -748,6 +748,81 @@ body {
     }
 }
 
+/* 3D照片球样式 */
+.photo-sphere-wrapper {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    overflow: visible;
+}
+
+#photo-sphere-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    transform-style: preserve-3d;
+}
+
+.sphere-photo {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+    transition: opacity 0.3s ease;
+    left: 50%;
+    top: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    pointer-events: none;
+}
+
+.sphere-photo:hover {
+    box-shadow: 0 12px 30px rgba(125, 184, 158, 0.4);
+}
+
+@media (max-width: 768px) {
+    .photo-sphere-wrapper {
+        height: 400px;
+    }
+    
+    #photo-sphere-container {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .sphere-photo {
+        width: 90px;
+        height: 90px;
+        margin-left: -45px;
+        margin-top: -45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-sphere-wrapper {
+        height: 300px;
+    }
+    
+    #photo-sphere-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .sphere-photo {
+        width: 70px;
+        height: 70px;
+        margin-left: -35px;
+        margin-top: -35px;
+    }
+}
+
+
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
