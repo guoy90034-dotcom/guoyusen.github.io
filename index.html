@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="个人简历与作品集展示">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>我的个人网站</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body>
     <!-- 导航栏 -->
@@ -29,10 +32,21 @@
 
     <!-- 主页横幅 -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">你好，我是 <span class="highlight">北邮学子</span></h1>
-            <p class="hero-subtitle">北京邮电大学 | 计算机科学与技术 | 终身学习者</p>
-            <a href="#contact" class="btn btn-primary">联系我</a>
+        <div class="hero-container">
+            <div class="hero-right">
+                <div class="hero-image hero-3d-text">
+                    <div class="text-3d">Hi</div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/photo1.jpg" alt="Photo 1" class="personal-photo">
+                </div>
+                <div class="hero-image">
+                    <img src="images/photo2.jpg" alt="Photo 2" class="personal-photo">
+                </div>
+                <div class="hero-image">
+                    <img src="images/photo3.jpg" alt="Photo 3" class="personal-photo">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -41,36 +55,31 @@
         <div class="container">
             <h2 class="section-title">校园经历</h2>
             <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2020.09 - 2024.06</div>
-                        <h3 class="timeline-title">教育背景与校园活动</h3>
-                        <div class="timeline-description">
-                            <p><strong>XX大学</strong> | 计算机科学与技术</p>
-                            <p>主修课程：数据结构、算法设计、Web开发、数据库系统</p>
-                            <p>• 担任学生会技术部部长，负责校园活动的技术支持</p>
-                            <p>• 参与ACM程序设计竞赛，获得区域赛铜牌</p>
+                <div class="timeline-item timeline-special">
+                    <div class="timeline-projects">
+                        <!-- 北京邮电大学：左侧 -->
+                        <div class="timeline-project left">
+                            <div class="timeline-project-content">
+                                <div class="timeline-date">2024.09 - 2027.06</div>
+                                <h3>北京邮电大学<br>计算数学（硕士）</h3>
+                                <p><strong>主修课程：</strong>偏微分方程</p>
+                                <p><strong>担任兼职辅导员：</strong></p>
+                                <p>• 独立牵头筹备"送毕业生交流会"等大型仪式活动</p>
+                                <p>• 成功邀请学校党委书记莅临指导，并获得现场高度评价</p>
+                            </div>
                         </div>
-                        <a href="#" class="timeline-btn">了解更多</a>
-                    </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">🎓</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022.10 - 2023.05</div>
-                        <h3 class="timeline-title">校园项目与科研</h3>
-                        <div class="timeline-description">
-                            <p>开发校园二手交易平台，服务超过1000名学生</p>
-                            <p>使用React + Node.js技术栈，实现商品发布、交易、评价等功能</p>
-                            <p>参与实验室科研项目，发表论文一篇</p>
+                        
+                        <!-- 河北工业大学：右侧 -->
+                        <div class="timeline-project right">
+                            <div class="timeline-project-content">
+                                <div class="timeline-date">2020.09 - 2024.06</div>
+                                <h3>河北工业大学<br>数学与应用数学（本科）</h3>
+                                <p><strong>主修课程：</strong>数值分析、高等代数、概率论与数理统计</p>
+                                <p><strong>担任四年班级班长：</strong></p>
+                                <p>• 建立"宿舍—班级—学院"三级联防机制</p>
+                                <p>• 高效完成奖助学金评定工作，准确率100%</p>
+                            </div>
                         </div>
-                        <a href="#" class="timeline-btn">查看项目</a>
-                    </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">💡</div>
                     </div>
                 </div>
             </div>
@@ -82,51 +91,74 @@
         <div class="container">
             <h2 class="section-title">实习经历</h2>
             <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023.06 - 2023.09</div>
-                        <h3 class="timeline-title">XX科技有限公司<br>前端开发实习生</h3>
-                        <div class="timeline-description">
-                            <p>参与电商平台开发，负责商品展示页面和购物车功能的实现</p>
-                            <p>优化页面加载速度30%，提升用户体验</p>
-                            <p>使用React、Redux进行状态管理，编写可复用组件</p>
-                        </div>
-                        <a href="#" class="timeline-btn">查看详情</a>
+                <!-- 快手实习 -->
+                <div class="timeline-item timeline-special">
+                    <div class="timeline-header">
+                        <span class="timeline-date">2025.11 - 至今</span>
+                        <span class="timeline-title-inline">快手—用户增长部—策略产品实习生</span>
                     </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">💼</div>
+                    
+                    <div class="timeline-projects">
+                        <!-- 项目1：左侧 -->
+                        <div class="timeline-project left">
+                            <div class="timeline-project-content">
+                                <h3>AI Push文案生成</h3>
+                                <p><strong>背景：</strong>基于用户文案偏好研究，探查到优质文案是用户点击 push 的重要驱动力，以及当前 push 机器拼接文案存在表意不明、表达生硬、缺乏真实性的痛点问题。为了守住文案质量底线，提升 push 点击率，拉动 DAU 增长</p>
+                                <p><strong>需求内容：</strong>搭建多维度质量评估体系，构建训练数据集，通过提示词调优、RAG 检索、SFT、DPO 等模型微调手段，实现文案准确率达到 95%，同步搭建文案质量判别模型以提高审核效率，判别模型准确率达到 90%，准召率 70%</p>
+                                <p><strong>AB 实验：</strong>大模型文案 ctr+0.1pp，有效播放率+0.08pp，DAU+30w，是推动 AI 大模型应用落地首个 Push 业务场景</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目2：右侧 -->
+                        <div class="timeline-project right">
+                            <div class="timeline-project-content">
+                                <h3>Push视频池冷启动专项</h3>
+                                <p><strong>背景：</strong>通过对 push-视频池冷启动成功率下降 6.8pp，定位原因为无分发视频占比高，且 63.3%的有分发视频未达到初始流量阈值。</p>
+                                <p><strong>目的：</strong>为了优化推荐系统的多样性与时效性，对新入池的视频进行流量扶持的牵引优化，挖掘出更多优质新内容长期贡献 DAU。</p>
+                                <p><strong>需求内容：</strong>定义冷启动指标体系，制定保量召回、Boost 排序摸高、垂类*十大人群差异化扶持、爬坡赛马机制、流量倾斜高点击人群、冷启动流量小时级别调控等精细化策略</p>
+                                <p><strong>AB 实验：</strong>冷启动成功率+8pp，Push 内容的时效性（4～14 天内的新视频占比+1.38pp），多样性（TOP5 垂类视频占比-0.32pp）</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目3：左侧 -->
+                        <div class="timeline-project left">
+                            <div class="timeline-project-content">
+                                <h3>0-1min DAU专项</h3>
+                                <p><strong>背景：</strong>针对 Push 贡献的 0-1minDAUyoy+16%，根据收入贡献与时长是否跃迁将 0-1min 用户群体划分为正常用户与异常用户（64%）</p>
+                                <p><strong>需求内容：</strong>开展 push 拉端进程的性能优化，并制定基于用户是否有有效消费行为进行 push 进端后承接追打、多样性打散策略</p>
+                                <p><strong>AB 实验：</strong>push 点击到视频曝光时间戳提升 2s，有效播放率+0.12pp，时长+10w 分钟</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024.01 - 2024.03</div>
-                        <h3 class="timeline-title">XX互联网公司<br>全栈开发实习生</h3>
-                        <div class="timeline-description">
-                            <p>负责后台管理系统开发，使用React + Node.js技术栈</p>
-                            <p>实现数据可视化和用户权限管理功能</p>
-                            <p>参与API设计，编写接口文档</p>
+                <!-- 美团实习 -->
+                <div class="timeline-item timeline-special">
+                    <div class="timeline-header">
+                        <span class="timeline-date">2025.09 - 2025.11</span>
+                        <span class="timeline-title-inline">美团—服务零售部—策略产品实习生</span>
+                    </div>
+                    
+                    <div class="timeline-projects">
+                        <!-- 项目1：左侧 -->
+                        <div class="timeline-project left">
+                            <div class="timeline-project-content">
+                                <h3>AI 推荐理由优化</h3>
+                                <p><strong>背景：</strong>为了解决丽人频道中推荐语模板化与男性用户需求聚焦且高转化的矛盾，利用 AI 赋能生产兼具个性化与感染力的推荐语</p>
+                                <p><strong>需求内容：</strong>从 0-1 搭建从数据圈选、prompt 工程到质量评测的工作流，构建质量评估体系，采用 DINN 模型进行个性化推荐</p>
+                                <p><strong>AB 实验：</strong>美发类目 UVCTR 提升 2.52pp，OPM（千次曝光订单转化数）提升 6.63，每日新增 1800+订单</p>
+                            </div>
                         </div>
-                        <a href="#" class="timeline-btn">查看详情</a>
-                    </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">🚀</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024.03 - 至今</div>
-                        <h3 class="timeline-title">XX创业公司<br>产品开发实习生</h3>
-                        <div class="timeline-description">
-                            <p>参与产品设计和开发全流程，从需求分析到上线部署</p>
-                            <p>积累了完整的项目经验，提升了团队协作能力</p>
-                            <p>学习敏捷开发流程，参与每日站会和迭代规划</p>
+                        
+                        <!-- 项目2：右侧 -->
+                        <div class="timeline-project right">
+                            <div class="timeline-project-content">
+                                <h3>货架Tab承接路径优化</h3>
+                                <p><strong>背景：</strong>为了提升流量承接效率，针对用户进入商户详情页时默认展示"全部"货架 Tab，间接延长用户决策路径与成本的场景。</p>
+                                <p><strong>需求内容：</strong>主导设计了基于 Query 意图与商户经营类型（综合/单品类），动态采用"锚定 Tab"或生成"刚刚搜过"Tab 承接链路。</p>
+                                <p><strong>AB 实验：</strong>团购 UVCTR+0.09pp，下单用户的货架点击率-0.04pp，访购率+0.16pp。</p>
+                            </div>
                         </div>
-                        <a href="#" class="timeline-btn">查看详情</a>
-                    </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">🎯</div>
                     </div>
                 </div>
             </div>
@@ -138,51 +170,58 @@
         <div class="container">
             <h2 class="section-title">最近日常分享</h2>
             <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">04.03.2025</div>
-                        <h3 class="timeline-title">学习TypeScript与Next.js</h3>
-                        <div class="timeline-description">
-                            <p>最近在学习TypeScript和Next.js，搭建了一个个人博客系统。</p>
-                            <p>感受到了类型系统带来的开发体验提升，以及服务端渲染带来的性能优势。</p>
-                            <p>下一步计划部署到Vercel上，并添加评论系统。</p>
+                <div class="timeline-item timeline-special">
+                    <div class="timeline-projects">
+                        <!-- 第一行：左右对齐 -->
+                        <div class="timeline-row">
+                            <!-- 分享1：左侧 -->
+                            <div class="timeline-project left">
+                                <div class="timeline-project-content">
+                                    <div class="timeline-date">2026.03</div>
+                                    <h3>沉迷于vibecoding～</h3>
+                                    <p><strong>背景：</strong>针对烹饪新手观看美食教程时节奏过快，操作不便，且纯文字菜谱理解成本高的痛点问题，使用 claude code 设计并开发 AI 美食视频解析小程序。</p>
+                                    <p><strong>功能：</strong>用户上传链接或者视频，AI 自动提取食材与烹饪步骤，同时提供菜谱管理、食材管理、趣味推荐等功能。</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 照片展示：右侧 -->
+                            <div class="timeline-project right">
+                                <div class="timeline-project-content photo-showcase">
+                                    <div class="photo-grid">
+                                        <img src="images/photo4.jpg" alt="Photo 4" class="grid-photo">
+                                        <img src="images/photo5.jpg" alt="Photo 5" class="grid-photo">
+                                        <img src="images/photo6.jpg" alt="Photo 6" class="grid-photo">
+                                        <img src="images/photo7.jpg" alt="Photo 7" class="grid-photo">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <a href="#" class="timeline-btn">Read More</a>
-                    </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">💻</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">03.22.2025</div>
-                        <h3 class="timeline-title">参加设计工作坊</h3>
-                        <div class="timeline-description">
-                            <p>周末参加了UI/UX设计工作坊，学习了设计基础知识。</p>
-                            <p>发现设计思维对产品开发也很有帮助，让我能更好地理解用户需求。</p>
-                            <p>开始尝试用Figma制作一些界面原型。</p>
+                        
+                        <!-- 第二行：学习做饭 - 左右布局 -->
+                        <div class="timeline-row">
+                            <!-- 照片展示：左侧 -->
+                            <div class="timeline-project left">
+                                <div class="timeline-project-content photo-showcase">
+                                    <div class="photo-grid">
+                                        <img src="images/photo8.jpg" alt="Photo 8" class="grid-photo">
+                                        <img src="images/photo9.jpg" alt="Photo 9" class="grid-photo">
+                                        <img src="images/photo10.jpg" alt="Photo 10" class="grid-photo">
+                                        <img src="images/photo1.jpg" alt="Photo 1" class="grid-photo">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 学习做饭文字：右侧 -->
+                            <div class="timeline-project right">
+                                <div class="timeline-project-content">
+                                    <div class="timeline-date">2026.02</div>
+                                    <h3>学习做饭</h3>
+                                    <p>开始系统学习烹饪，从基础的刀工到各种烹饪技巧。</p>
+                                    <p>发现做饭和写代码有很多相似之处，都需要耐心和细节把控。</p>
+                                    <p>已经能做出几道拿手菜了，朋友们都说很好吃！</p>
+                                </div>
+                            </div>
                         </div>
-                        <a href="#" class="timeline-btn">Read More</a>
-                    </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">🎨</div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">02.07.2025</div>
-                        <h3 class="timeline-title">首个开源贡献</h3>
-                        <div class="timeline-description">
-                            <p>给开源项目提交了第一个PR并被合并！</p>
-                            <p>虽然只是修复了一个小bug，但整个流程让我学到很多：</p>
-                            <p>如何阅读他人代码、如何规范提交、如何与维护者沟通。</p>
-                        </div>
-                        <a href="#" class="timeline-btn">Read More</a>
-                    </div>
-                    <div class="timeline-image">
-                        <div class="timeline-placeholder">📝</div>
                     </div>
                 </div>
             </div>
@@ -200,13 +239,9 @@
                         <span class="contact-icon">📧</span>
                         <span>2935487325@qq.com</span>
                     </a>
-                    <a href="https://github.com/yourusername" class="contact-item" target="_blank">
-                        <span class="contact-icon">💻</span>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank">
-                        <span class="contact-icon">💼</span>
-                        <span>LinkedIn</span>
+                    <a href="tel:18222802206" class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>18222802206</span>
                     </a>
                 </div>
             </div>
