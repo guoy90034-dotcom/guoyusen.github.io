@@ -170,7 +170,6 @@ body {
 .text-3d {
     font-size: 12rem;
     font-weight: 900;
-    color: #a8d5ba;
     text-align: center;
     font-family: 'Arial Black', sans-serif;
     letter-spacing: 0.1em;
@@ -178,8 +177,29 @@ body {
     text-transform: uppercase;
     transform-style: preserve-3d;
     animation: float 3s ease-in-out infinite;
-    filter: blur(0.5px);
     -webkit-font-smoothing: antialiased;
+    
+    /* 水彩斑点花纹效果 */
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(168, 213, 186, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 80% 10%, rgba(125, 184, 158, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 40% 70%, rgba(168, 213, 186, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(142, 193, 174, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 20% 90%, rgba(125, 184, 158, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 60% 30%, rgba(168, 213, 186, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 30% 50%, rgba(158, 203, 180, 0.7) 0%, transparent 45%),
+        radial-gradient(circle at 70% 60%, rgba(125, 184, 158, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 50% 40%, rgba(142, 193, 174, 0.5) 0%, transparent 35%),
+        radial-gradient(circle at 15% 60%, rgba(168, 213, 186, 0.7) 0%, transparent 40%),
+        radial-gradient(circle at 85% 45%, rgba(125, 184, 158, 0.6) 0%, transparent 45%),
+        radial-gradient(circle at 45% 15%, rgba(158, 203, 180, 0.7) 0%, transparent 40%),
+        linear-gradient(135deg, #a8d5ba, #7db89e);
+    
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(125, 184, 158, 0.3));
 }
 
 .text-3d::before {
