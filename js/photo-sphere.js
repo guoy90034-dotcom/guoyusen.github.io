@@ -9,8 +9,9 @@ class PhotoSphere {
         this.angleX = 0;
         this.angleY = 0;
         this.speedX = 0; // X轴旋转速度
-        this.speedY = 0.01; // Y轴旋转速度（自动旋转）
-        this.autoRotateSpeed = 0.01; // 基础自动旋转速度
+        this.speedY = 0.005; // Y轴旋转速度（降低速度）
+        this.autoRotateSpeed = 0.005; // 基础自动旋转速度（降低）
+        this.isPaused = false; // 是否暂停旋转
         
         this.init();
     }
@@ -30,10 +31,21 @@ class PhotoSphere {
             img.dataset.phi = phi;
             img.dataset.theta = theta;
             
+            // 添加鼠标悬停事件 - 悬停时暂停旋转
+            img.addEventListener('mouseenter', () => {
+                this.isPaused = true;
+                img.style.cursor = 'pointer';
+            });
+            
+            img.addEventListener('mouseleave', () => {
+                this.isPaused = false;
+                img.style.cursor = 'default';
+            });
+            
             this.container.appendChild(img);
         });
         
-        // 鼠标交互 - 控制旋转速度而不是目标角度
+        // 鼠标交互 - 控制旋转速度
         let lastMouseX = 0;
         let lastMouseY = 0;
         let isMouseOver = false;
@@ -53,7 +65,7 @@ class PhotoSphere {
         });
         
         this.container.addEventListener('mousemove', (e) => {
-            if (!isMouseOver) return;
+            if (!isMouseOver || this.isPaused) return;
             
             const rect = this.container.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
@@ -63,9 +75,9 @@ class PhotoSphere {
             const deltaX = mouseX - lastMouseX;
             const deltaY = mouseY - lastMouseY;
             
-            // 根据鼠标移动增量调整旋转速度
-            this.speedY = deltaX * 0.002; // 水平移动控制Y轴旋转
-            this.speedX = deltaY * 0.002; // 垂直移动控制X轴旋转
+            // 根据鼠标移动增量调整旋转速度（降低灵敏度）
+            this.speedY = deltaX * 0.001;
+            this.speedX = deltaY * 0.001;
             
             lastMouseX = mouseX;
             lastMouseY = mouseY;
@@ -76,17 +88,20 @@ class PhotoSphere {
     }
     
     updatePositions() {
-        // 持续累积旋转角度 - 这样球体可以完整旋转
-        this.angleX += this.speedX;
-        this.angleY += this.speedY;
-        
-        // 速度衰减（当没有鼠标交互时）
-        this.speedX *= 0.95;
-        this.speedY *= 0.98;
-        
-        // 确保至少保持最小的自动旋转速度
-        if (Math.abs(this.speedY) < this.autoRotateSpeed) {
-            this.speedY = this.autoRotateSpeed;
+        // 如果暂停，则不更新角度
+        if (!this.isPaused) {
+            // 持续累积旋转角度
+            this.angleX += this.speedX;
+            this.angleY += this.speedY;
+            
+            // 速度衰减
+            this.speedX *= 0.95;
+            this.speedY *= 0.98;
+            
+            // 确保至少保持最小的自动旋转速度
+            if (Math.abs(this.speedY) < this.autoRotateSpeed) {
+                this.speedY = this.autoRotateSpeed;
+            }
         }
         
         const photos = this.container.querySelectorAll('.sphere-photo');

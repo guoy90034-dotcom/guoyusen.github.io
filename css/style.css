@@ -776,11 +776,12 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     border: 3px solid white;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: default;
 }
 
 .sphere-photo:hover {
