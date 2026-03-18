@@ -138,9 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'images/work2.jpg',
         'images/work3.jpg',
         'images/work4.jpg',
-        'images/work5.jpg',
-        'images/work6.jpg',
-        'images/work7.jpg'
+        'images/work5.jpg'
     ];
     
     new PhotoSphere('photo-sphere-container', photos);
