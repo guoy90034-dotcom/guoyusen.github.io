@@ -353,7 +353,7 @@ body {
     padding: 0.5rem 0;
 }
 
-/* 左侧的绿色竖线 */
+/* 绿色竖线 - 默认隐藏 */
 .timeline-projects::before {
     content: '';
     position: absolute;
@@ -363,6 +363,14 @@ body {
     width: 3px;
     background: linear-gradient(180deg, #a8d5ba, #7db89e);
     z-index: 0;
+    display: none; /* 默认不显示 */
+}
+
+/* 只在日常分享部分显示居中的绿色竖线 */
+#daily .timeline-projects::before {
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* 时间线行 - 用于左右对齐布局 */
