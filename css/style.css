@@ -282,12 +282,17 @@ body {
 
 /* 实习经历section的container特殊处理 */
 #internship .container {
-    max-width: 1600px;
+    max-width: 1400px;
 }
 
 /* 日常分享section的container特殊处理 */
 #daily .container {
-    max-width: 1600px;
+    max-width: 1400px;
+}
+
+/* 校园经历section的container特殊处理 */
+#campus .container {
+    max-width: 1400px;
 }
 
 .timeline-item {
