@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Outfit:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=40">
+    <link rel="stylesheet" href="css/style.css?v=48">
 </head>
 <body>
     <!-- 导航栏 -->
@@ -19,6 +19,7 @@
         <div class="container">
             <div class="nav-brand">我的网站</div>
             <ul class="nav-menu">
+                <li><a href="#welcome" class="nav-link">欢迎</a></li>
                 <li><a href="#home" class="nav-link">首页</a></li>
                 <li><a href="#campus" class="nav-link">校园经历</a></li>
                 <li><a href="#internship" class="nav-link">实习经历</a></li>
@@ -32,6 +33,15 @@
             </div>
         </div>
     </nav>
+
+    <!-- 欢迎页 - Guo Yusen 水彩文字 -->
+    <section id="welcome" class="welcome-section">
+        <div class="welcome-container">
+            <div class="welcome-text-wrapper">
+                <div class="text-3d-name">Guo Yusen</div>
+            </div>
+        </div>
+    </section>
 
     <!-- 主页横幅 -->
     <section id="home" class="hero">
@@ -86,20 +96,28 @@
                     <div class="timeline-projects">
                         <!-- 第一行：文字和照片 -->
                         <div class="timeline-row">
-                            <!-- 左侧：学校信息 -->
+                            <!-- 左侧：学校信息 - 时间线样式 -->
                             <div class="timeline-project left">
-                                <div class="timeline-project-content">
-                                    <div class="education-item">
-                                        <div class="timeline-date">2024.09 - 2027.06</div>
-                                        <p style="font-size: 1.1rem; margin: 5px 0 0 0;">北京邮电大学</p>
-                                        <p style="font-size: 1.1rem; margin: 0;">计算数学（硕士）</p>
+                                <div class="education-timeline">
+                                    <!-- 第一个学校 -->
+                                    <div class="education-item-timeline">
+                                        <div class="education-dot"></div>
+                                        <div class="education-content">
+                                            <div class="timeline-date">2024.09 - 2027.06</div>
+                                            <p style="font-size: 1.1rem; margin: 5px 0 0 0;">北京邮电大学</p>
+                                            <p style="font-size: 1.1rem; margin: 0;">计算数学（硕士）</p>
+                                        </div>
                                     </div>
                                     
-                                    <div class="education-item" style="margin-top: 40px;">
-                                        <div class="timeline-date">2020.09 - 2024.06</div>
-                                        <p style="font-size: 1.1rem; margin: 5px 0 0 0;">河北工业大学</p>
-                                        <p style="font-size: 1.1rem; margin: 0;">数学与应用数学（本科）</p>
-                                        <p style="margin: 10px 0 0 0;">担任四年班级班长</p>
+                                    <!-- 第二个学校 -->
+                                    <div class="education-item-timeline">
+                                        <div class="education-dot"></div>
+                                        <div class="education-content">
+                                            <div class="timeline-date">2020.09 - 2024.06</div>
+                                            <p style="font-size: 1.1rem; margin: 5px 0 0 0;">河北工业大学</p>
+                                            <p style="font-size: 1.1rem; margin: 0;">数学与应用数学（本科）</p>
+                                            <p style="margin: 10px 0 0 0;">担任四年班级班长</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
